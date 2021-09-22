@@ -43,26 +43,22 @@ public class ProductionsPage {
         System.out.println("allProductionsName.size() = " + allProductionsName.size());
         int listPriceNum=0;
         for (int i = 0; i < allProductionsName.size(); i++) {
-            //BrowserUtils.waitFor(1);
-            //System.out.print("allProductionsName.getText() = " + allProductionsName.get(i).getText() + " | ");
             BrowserUtils.waitFor(2);
             allProductionsName.get(i).click();
 
             try {
-                //System.out.println("listPrice.getText() = " +
                 listPrice.getText();
                 listPriceNum ++;
-                //System.out.println("Burdayım...");
                 Driver.get().navigate().back();
                 BrowserUtils.waitFor(2);
             } catch (Exception e) {
-               // System.out.println("There is no discount here...");
+                System.out.println("There is no discount here...");
                 try {
                     thePrice.getText();
                     BrowserUtils.waitFor(3);
                       try {
                           String temp=(theProductionsName.getText());
-                          if(temp.contains("RAM")||temp.contains("DDR")||temp.contains("SSD")||temp.contains("HDD")) {
+                          if(temp.contains("RAM")||temp.contains("DDR")||temp.contains("SSD")||temp.contains("HDD")) {// I added this if to avoid laptop accessories.
                               BrowserUtils.waitFor(2);
                               addToTheCart.click();
                               shoppingList.add(temp);

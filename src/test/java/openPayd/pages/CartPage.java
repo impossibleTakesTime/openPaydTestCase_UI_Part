@@ -41,8 +41,6 @@ public class CartPage {
            System.out.println("The number is same");
            for(int i=0; i<cartList.size(); i++){
                Assert.assertTrue(productionsPage.shoppingList.contains(cartList.get(i)));
-
-
            }
        }
 
